@@ -98,7 +98,7 @@ jobs:
           flavor: |
             latest=auto
           images: |
-            ghcr.io/banzaicloud/cruise-control
+            ghcr.io/mesosphere/cruise-control
           tags: |
             type=semver,pattern={{version}}
             type=edge,branch=master
