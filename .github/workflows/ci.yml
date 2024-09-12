@@ -3,12 +3,12 @@ name: CI
 on:
   push:
     branches:
-      - 'master'
+      - "master"
     tags:
       - "[0-9].[0-9]+.[0-9]+*"
   pull_request:
     branches:
-      - 'master'
+      - "master"
 
 env:
   CONTAINER_LABELS: |
@@ -52,7 +52,7 @@ jobs:
           flavor: |
             latest=false
           images: |
-            ghcr.io/banzaicloud/cruise-control
+            ghcr.io/mesosphere/cruise-control
           tags: |
             type=sha,enable=true,format=short,prefix=
           labels: ${{ env.CONTAINER_LABELS }}
