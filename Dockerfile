@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17.0.7_7-jdk as cruisecontrol
+FROM eclipse-temurin:17.0.9_9-jdk as cruisecontrol
 ARG CRUISE_CONTROL_VERSION
 WORKDIR /
 USER root
@@ -34,9 +34,12 @@ RUN \
   && npm install \
   && npm run build
 
-FROM eclipse-temurin:17.0.7_7-jre
+FROM eclipse-temurin:17.0.9_9-jre
 ENV CRUISE_CONTROL_LIBS="/var/lib/cruise-control-ext-libs/*"
 ENV CLASSPATH="${CRUISE_CONTROL_LIBS}"
+RUN \
+  set -xe; \
+  apt update && apt upgrade -y && apt clean
 RUN \
   set -xe; \
   mkdir -p /opt/cruise-control \
